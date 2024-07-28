@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
+  
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
@@ -83,9 +84,7 @@ export default function Navbar(props) {
                 props.mode === "dark" ? "light" : "dark"
               }`}
               htmlFor="flexSwitchCheckDefault"
-            >
-              Enable Dark Mode
-            </label>
+            >Dark Mode</label>
           </div>
         </div>
       </div>
