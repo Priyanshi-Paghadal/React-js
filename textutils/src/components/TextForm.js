@@ -56,31 +56,31 @@ export default function TextForm(props) {
             id="myBox"
             rows="6"
             value={text}
-            onChange={handleOnChange} style={{backgroundColor : props.mode === "dark" ? "#343a40" : "white" , color :props.mode === "dark" ? "white" : "black"}}
+            onChange={handleOnChange} style={{backgroundColor : props.mode === "dark" ? "#343a40" : "white" , color :props.mode === "dark" ? "white" : "black"}} 
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleClick}>
+        <button className="btn btn-primary mx-2" onClick={handleClick} style={{backgroundColor : props.mode === "dark" ? "white" : "black" , color : props.mode === "dark" ? "black" : "white"}}>
           Convert To Uppercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleloClick}>
+        <button className="btn btn-primary mx-2" onClick={handleloClick} style={{backgroundColor : props.mode === "dark" ? "white" : "black" , color : props.mode === "dark" ? "black" : "white"}}>
           Convert To Lowercase
         </button>
         <button
         type="submit"
         onClick={speak}
-        className="btn btn-warning mx-2 my-2"
-        id="toggle"
+        className="btn btn-primary mx-2 my-2"
+        id="toggle" style={{backgroundColor : props.mode === "dark" ? "white" : "black" , color : props.mode === "dark" ? "black" : "white"}}
       >
         Speak
       </button>
-      <button onClick={handleCopy} type="button" className="btn btn-primary mx-2">Copy Text</button>
-      <button onClick={handleExtraSpaces} type="button" className="btn btn-primary mx-2">Remove Extra Spaces</button>
+      <button onClick={handleCopy} type="button" className="btn btn-primary mx-2" style={{backgroundColor : props.mode === "dark" ? "white" : "black" , color : props.mode === "dark" ? "black" : "white"}}>Copy Text</button>
+      <button onClick={handleExtraSpaces} type="button" className="btn btn-primary mx-2" style={{backgroundColor : props.mode === "dark" ? "white" : "black" , color : props.mode === "dark" ? "black" : "white"}}>Remove Extra Spaces</button>
       </div>
       <div className="container my-3" style={{color : props.mode === "dark" ? "white" : "black"}}>
         <h1>Your text Summary</h1>
         <p>
           {" "}
-          {text.split(" ").length} words and {text.length} character
+          {text.split(" ").length-1} words and {text.length} character
         </p>
         <p> {0.008 * text.split(" ").length} Minutes for read word </p>
         <h2>Preview</h2>

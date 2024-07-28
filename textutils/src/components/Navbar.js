@@ -1,13 +1,40 @@
-import React from "react";
+import React , {useState} from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
-  
+  const [color , setColor] = useState('black');
+  const [backgroundColor , setBackgroundColor] = useState('white');
+  const changeTheme = (newBackgroundColor, newColor)=>{
+    setBackgroundColor(newBackgroundColor);
+    setColor(newColor);
+    document.body.style.backgroundColor = newBackgroundColor;
+    document.body.style.color = newColor;
+  }
+  const colors = ['red', 'green' , 'blue'];
+  const themeColorStyle = {
+    width: '40px',
+    height: '40px',
+    borderRadius: '5px',
+    backgroundColor: 'red',
+    border:'1px solid white',
+    listStyle:'none',
+    margin:'0 10px',
+    cursor:'pointer',
+  }
+  const flex = {
+    display:'flex',
+    justifyContent:'center',
+    marginBottom:'0px',
+  }
+  const alignitems = {
+    alignItems:'center',
+    display:'flex',
+  }
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
-      <div className="container-fluid">
+      <div className="container-fluid" style={alignitems}>
         <a className="navbar-brand" href="/">
           {props.title}
         </a>
@@ -70,6 +97,11 @@ export default function Navbar(props) {
                 Contact
               </a>
             </li>
+          </ul>
+          <ul style={flex}>
+            {colors.map((color, index) => (
+              <li key={index} style={{ ...themeColorStyle, backgroundColor: color }} onClick={() => changeTheme(color, color === 'blue' ? 'white' : 'black')}/>
+            ))}
           </ul>
           <div className="form-check form-switch">
             <input
